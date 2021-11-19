@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubeweb 
+  labels:
+    app: kubeweb 
+spec:
+  replicas : 3
+  selector:
+    matchLabels:
+      app: kubeweb 
+  template:
+    metadata:
+      labels:
+        app: kubeweb 
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 80
